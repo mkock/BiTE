@@ -25,12 +25,12 @@ Installation assumes a *_Debian-based_* Linux distribution such as Ubuntu 14.04,
   3. Go download and upzip the test database
 
   ```bash
-  curl -O https://s3-eu-west-1.amazonaws.com/bem-test-s3-bucket/bitedb_test/20141212-bitedb.tar.gz
-  tar -zvxf 20141212-bitedb.tar.gz
-  rm 20141212-bitedb.tar.gz
+  curl -O https://<region>.amazonaws.com/<path-to-db>/<YYYYMMDD>-bitedb.tar.gz
+  tar -zvxf <YYYYMMDD>-bitedb.tar.gz
+  rm <YYYYMMDD>-bitedb.tar.gz
   ```
 
-  4. Run `mongod --dbpath 20141212-bitedb` to start MongoDB.
+  4. Run `mongod --dbpath <YYYYMMDD>-bitedb` to start MongoDB.
 
   5. Run `redis-server` to start Redis.
 
