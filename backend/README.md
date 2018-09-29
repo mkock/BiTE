@@ -5,9 +5,9 @@ BiTE Backend
 
 This documentation is in three parts;
 
-1. [Readme for the BITE Backend](/backend/README.md).
-2. [Readme for the BITE Frontend](frontend/README.md).
-3. [Readme for the BITE Admin](admin/README.md).
+  * [Readme for the BITE Backend](/backend/README.md).
+  * ~~Readme for the BITE Frontend.~~
+  * ~~Readme for the BITE Admin.~~
 
 ## Description
 

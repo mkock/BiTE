@@ -6,8 +6,8 @@ BiTE
 This documentation is in three parts;
 
   * [Readme for the BITE Backend](/backend/README.md).
-  * [Readme for the BITE Frontend](frontend/README.md).
-  * [Readme for the BITE Admin](admin/README.md).
+  * ~~Readme for the BITE Frontend.~~
+  * ~~Readme for the BITE Admin.~~
 
 ## Getting Started for Production
 
