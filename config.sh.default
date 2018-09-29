@@ -1,0 +1,47 @@
+# Set up required environment parameters for your development server.
+# Run the script as follows to embed variables in current shell scope;
+#
+# source config.sh
+#
+# NODE_ENV - [development|test|production]
+export NODE_ENV=""
+# APP_PORT - Port that nodejs app will be listening on
+export APP_PORT=""
+# MONGODB_DB - Name of MongoDB database used as data store
+export MONGODB_DB=""
+# MONGODB_HOST - Hostname (IP or URL) of server running MongoDB
+export MONGODB_HOST=""
+# MONGODB_PORT - Port number that MongoDB server is listening on
+export MONGODB_PORT=""
+# BOND_API_URL - Absolute URL (path) to BOND API on BOND (no trailing slash!)
+export BOND_API_URL=""
+# MECOM_API_URL - Absolute URL (path) to MECOM API on BOND (no trailing slash!)
+export MECOM_API_URL=""
+# REDIS_HOST - Hostname (IP or URL) of server running Redis
+export REDIS_HOST=""
+# REDIS_PORT - Port number that Redis server is listening on
+export REDIS_PORT=""
+# SERVEDBY
+export SERVEDBY=""
+# Facebook app id for BiTE page
+export FACEBOOK_APP_ID=""
+# Twitter username for BiTE page
+export TWITTER_USERNAME=""
+# AWS S3 ACCESS KEY
+export AWS_S3_ACCESS_KEY=""
+# AWS S3 AWS_S3_ACCESS_SECRET
+export AWS_S3_ACCESS_SECRET=""
+# AWS S3 AWS_S3_REGION
+export AWS_S3_REGION=""
+# AWS S3 AWS_S3_BUCKET (no trailing slash!)
+export AWS_S3_BUCKET=""
+# FACEBOOK_APP_ID - Facebook app id for BiTE page
+export FACEBOOK_APP_ID=""
+# TWITTER_USERNAME - Twitter username for BiTE page
+export TWITTER_USERNAME=""
+# CLOUDINARY_API_KEY - Cloudinary cloud name
+export CLOUDINARY_NAME=""
+# CLOUDINARY_API_KEY - Cloudinary API key
+export CLOUDINARY_API_KEY=""
+# CLOUDINARY_API_SECRET - Cloudinary API secret
+export CLOUDINARY_API_SECRET=""

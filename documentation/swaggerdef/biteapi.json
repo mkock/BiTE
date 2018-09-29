@@ -1,0 +1,254 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Bite API",
+        "description": "This is the description of the BITE API",
+        "contact": {
+            "name": "akri@berlingskemedia.dk",
+            "email": "akri@berlingskemedia.dk",
+            "url": "www.berlingskemedia.dk"
+        }
+    },
+    "host": "54.171.106.198/",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/tags": {
+            "get": {
+                "description": "Retrieve paginated tags, sorted by priority-field (lowest first)",
+                "operationId": "gettags",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "pagesize",
+                        "in": "query",
+                        "description": "How many items are recieved",
+                        "required": false,
+                        "type": "integer",
+                        "default": 10
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagenumber",
+                        "required": false,
+                        "type": "integer",
+                        "default": 1
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfull Tags Response",
+                        "schema": {
+                            "$ref": "#/definitions/defaultTagResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/errorModel"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "Creates a new tag. Duplicates are allowed",
+                "operationId": "addnewtag",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "tag",
+                        "in": "body",
+                        "description": "Tag to add",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/newTag"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "pet response",
+                        "schema": {
+                            "$ref": "#/definitions/tag"
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/errorModel"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "defaultTagResponse": {
+            "id" : "DefaultTagResponse",
+            "required": [
+                "page",
+                "nextPage",
+                "prevPage",
+                "pageCount",
+                "items"
+            ],
+            "properties": {
+                "page": {
+                    "type": "integer",
+                    "description": "Number of current page"
+                },
+                "nextPage": {
+                    "type": "integer",
+                    "description": "Number of next page"
+                },
+                "prevPage":{
+                    "type": "integer",
+                    "description": "Number of prev page"
+                },
+                "pageCount":{
+                    "type": "integer",
+                    "description": "Number of total pages"
+                },
+                "items":{
+                    "type": "list",
+                    "items": {
+                        "$ref": "#/definitions/tag"
+                    },
+                    "description": "An array of the tags"
+                }
+            }
+        },
+        "tag": {
+            "required": [
+                "_id",
+                "name",
+                "slug",
+                "description",
+                "template",
+                "image",
+                "nodequeueId"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "slug": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "published": {
+                    "type": "integer"
+                },
+                "template": {
+                    "$ref": "#/definitions/template"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "nodequeueId": {
+                    "type": "integer"
+                },
+                "showInMenu":{
+                    "type": "boolean"
+                },
+                "showAsTile":{
+                    "type": "boolean"
+                },
+                "ignoreOnFrontpage": {
+                    "type": "boolean"
+                },
+                "imageStrategy": {
+                    "type": "string",
+                    "enum" : ["default","latest"]
+                }
+            }
+        },
+        "template" : {
+            "required": [
+                "textColor1",
+                "textColor2",
+                "backgroundColor"
+            ],
+            "properties": {
+                "textColor1":{
+                    "type": "string"
+                },
+                "textColor2":{
+                    "type": "string"
+                },
+                "backgroundColor":{
+                    "type": "string"
+                }
+            }
+        },
+        "contentitem": {
+            "required": [
+                "id",
+                "name"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
+            }
+        },
+        "newTag": {
+            "allOf": [
+                {
+                    "$ref": "pet"
+                },
+                {
+                    "required": [
+                        "name"
+                    ],
+                    "properties": {
+                        "id": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                }
+            ]
+        },
+        "errorModel": {
+            "required": [
+                "code",
+                "message"
+            ],
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
